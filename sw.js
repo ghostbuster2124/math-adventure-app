@@ -1,6 +1,6 @@
 // Service worker: bewaart de app zodat ze zonder internet werkt.
 // Verhoog het versienummer als je bestanden aanpast.
-const CACHE = 'reken-avontuur-v1';
+const CACHE = 'reken-avontuur-v2';
 const ASSETS = [
   './',
   './index.html',

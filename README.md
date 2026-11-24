@@ -1,8 +1,15 @@
-# Reken Avontuur 🦉
+# Reken Avontuur · Math Adventure 🦉
 
-A math game for 5–6 year olds, in Dutch (Flemish school style). It works **offline** on an Android tablet after it has been opened once.
+A math game for 5–6 year olds, in **Dutch and English** (Flemish school style). It works **offline** on an Android tablet after it has been opened once.
 
-Every instruction is **read aloud** in Dutch, so the child doesn't need to be able to read. The buttons are big, mistakes are never punished (the child just tries again), and every round of 8 questions earns stars and a sticker.
+Every instruction is **read aloud** (in Dutch, English, or both), so the child doesn't need to be able to read. The buttons are big, mistakes are never punished (the child just tries again), and every round of 8 questions earns stars and a sticker.
+
+## Dutch and English
+
+- **Flag button (top right)** switches the text on screen: 🇧🇪 🇬🇧 both languages (Dutch with English underneath) → 🇧🇪 Dutch only → 🇬🇧 English only.
+- **⚙️ Ouders / Parents → Read aloud** chooses the voice: Off, Dutch, Dutch + English, or English. Default: Dutch, so the child hears the words used at school.
+- **⚙️ Ouders / Parents → Word list**: the Dutch math words your child hears at school (verliefde harten, tiental, eenheid, gedeeld door…) with English meanings. Tap a word to hear how it's pronounced in Dutch.
+- On the abacus, English mode shows H / T / **O** (hundreds, tens, ones); Dutch shows H / T / **E** (honderdtal, tiental, eenheid).
 
 ## The 9 games (each with 3 levels: 🐣 Makkelijk · 🐥 Gewoon · 🦁 Moeilijk)
 
@@ -36,10 +43,10 @@ It uses the Flemish conventions: `:` for division, and the colour code **H = gre
 
 ### Making the voice work offline
 The voice comes from the tablet's own text-to-speech, which needs a Dutch voice installed on the tablet:
-**Settings → System → Languages → Text-to-speech output → Google → ⚙️ → Install voice data → Nederlands (België)**.
+**Settings → System → Languages → Text-to-speech output → Google → ⚙️ → Install voice data → Nederlands (België)** (and English, if you use the English voice).
 You can test the voice in the app under **⚙️ Ouders → ▶️ Test stem**.
 
 ## Updating the app later
-If you change any file, also bump the version in `sw.js` (`reken-avontuur-v1` → `v2`). The tablet picks up the new version the next time it opens the app while online.
+If you change any file, also bump the version in `sw.js` (for example `reken-avontuur-v2` → `v3`). The tablet picks up the new version the next time it opens the app while online.
 
 Progress (stars and stickers) is saved on the tablet itself. You can reset it under **⚙️ Ouders**.
