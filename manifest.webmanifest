@@ -1,0 +1,17 @@
+{
+  "name": "Reken Avontuur",
+  "short_name": "Rekenen",
+  "description": "Rekenspel voor kleuters: tellen, getallen tot 200, plus, min, keer, delen, rekenrek, telraam en hoofdrekenen.",
+  "lang": "nl-BE",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "orientation": "any",
+  "background_color": "#e1f5fe",
+  "theme_color": "#4fc3f7",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

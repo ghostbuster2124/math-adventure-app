@@ -1,276 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl-BE">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Little Math Adventure - 50 Levels</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            user-select: none;
-            -webkit-user-select: none;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #74ebd5 0%, #acb6e5 100%);
-            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Bubblegum Sans', sans-serif;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        header {
-            height: 12vh;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-            background: rgba(255, 255, 255, 0.85);
-            border-bottom: 4px solid #fff;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        h1 {
-            margin: 0;
-            color: #ff6b6b;
-            font-size: 1.5rem;
-        }
-
-        .level-badge {
-            background: #ffde59;
-            padding: 6px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            color: #333;
-            font-size: 1.1rem;
-            border: 2px solid #fff;
-        }
-
-        .stage {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 15px;
-            position: relative;
-        }
-
-        .prompt-bubble {
-            background: white;
-            padding: 15px 25px;
-            border-radius: 30px;
-            font-size: 1.4rem;
-            color: #333;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-            margin-bottom: 20px;
-            border: 3px solid #ffde59;
-            text-align: center;
-            max-width: 90%;
-        }
-
-        .drop-zones-container {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .drop-zone {
-            min-width: 130px;
-            min-height: 130px;
-            background: rgba(255, 255, 255, 0.65);
-            border: 4px dashed #ff6b6b;
-            border-radius: 25px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            padding: 10px;
-            gap: 8px;
-            transition: all 0.25s ease;
-            position: relative;
-        }
-
-        .drop-zone::after {
-            content: attr(data-label);
-            position: absolute;
-            bottom: -24px;
-            font-size: 0.95rem;
-            color: #2c3e50;
-            font-weight: bold;
-            background: rgba(255,255,255,0.8);
-            padding: 2px 8px;
-            border-radius: 10px;
-        }
-
-        .drop-zone.highlight {
-            background: rgba(255, 222, 89, 0.5);
-            border-color: #f1c40f;
-            transform: scale(1.06);
-        }
-
-        .drop-zone.completed {
-            background: rgba(46, 204, 113, 0.35);
-            border: 4px solid #2ecc71;
-        }
-
-        .tray {
-            height: 26vh;
-            background: rgba(255, 255, 255, 0.92);
-            border-top: 4px solid #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
-            padding: 10px 20px;
-            box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
-        }
-
-        .item {
-            width: 60px;
-            height: 60px;
-            font-size: 2.5rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: grab;
-            touch-action: none;
-            transition: transform 0.15s;
-            filter: drop-shadow(0 4px 5px rgba(0,0,0,0.2));
-        }
-
-        .item.dragging {
-            position: fixed;
-            z-index: 1000;
-            pointer-events: none;
-            transform: scale(1.25);
-        }
-
-        .celebration {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0);
-            background: #ffde59;
-            padding: 25px 35px;
-            border-radius: 30px;
-            font-size: 1.8rem;
-            color: #d63031;
-            border: 5px solid #fff;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
-            transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            z-index: 2000;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .celebration.show {
-            transform: translate(-50%, -50%) scale(1);
-        }
-
-        .next-btn {
-            background: #2ecc71;
-            color: white;
-            border: 3px solid #fff;
-            padding: 12px 28px;
-            font-size: 1.4rem;
-            font-family: inherit;
-            font-weight: bold;
-            border-radius: 25px;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-
-        .next-btn:active {
-            transform: scale(0.95);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#4fc3f7">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="description" content="Rekenspel voor kleuters: tellen, getallen tot 200, plus, min, keer, delen, rekenrek, telraam en hoofdrekenen.">
+  <title>Reken Avontuur</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header class="topbar">
+    <button id="homeBtn" class="icon-btn" aria-label="Terug naar het begin" hidden>🏠</button>
+    <h1 id="title">Reken Avontuur</h1>
+    <div class="star-pill" aria-label="Sterren">⭐ <span id="starCount">0</span></div>
+  </header>
 
-    <header>
-        <h1 id="categoryTitle">🍎 Addition</h1>
-        <div class="level-badge" id="levelCounter">Level 1 / 50</div>
-    </header>
+  <main id="app"></main>
+  <div id="fx" aria-hidden="true"></div>
 
-    <div class="stage">
-        <div class="prompt-bubble" id="promptText">Loading...</div>
-        <div class="drop-zones-container" id="zonesContainer"></div>
-
-        <div class="celebration" id="celebrationBox">
-            <div id="winText">🎉 Great Job! 🎉</div>
-            <button class="next-btn" onclick="nextLevel()">Next Level ➡️</button>
-        </div>
-    </div>
-
-    <div class="tray" id="itemTray"></div>
-
-    <script>
-        // 50 Exercises covering Addition, Subtraction, Multiplication (Grouping), and Division (Sharing)
-        const exercises = [
-            // --- 1-15: ADDITION (Putting Together) ---
-            { cat: "➕ Addition", prompt: "Put 2 apples in the basket!", icon: "🍎", totalTray: 4, zones: [{ cap: 2, pre: 0, label: "2 apples" }], ans: "2 apples!" },
-            { cat: "➕ Addition", prompt: "Bunny has 1 carrot. Add 2 more!", icon: "🥕", totalTray: 4, zones: [{ cap: 3, pre: 1, label: "1 + 2 = 3" }], ans: "1 + 2 = 3 carrots!" },
-            { cat: "➕ Addition", prompt: "Bear has 2 berries. Give him 2 more!", icon: "🍓", totalTray: 4, zones: [{ cap: 4, pre: 2, label: "2 + 2 = 4" }], ans: "2 + 2 = 4 berries!" },
-            { cat: "➕ Addition", prompt: "Put 3 bananas on the plate!", icon: "🍌", totalTray: 5, zones: [{ cap: 3, pre: 0, label: "3 bananas" }], ans: "3 bananas!" },
-            { cat: "➕ Addition", prompt: "2 cookies on the plate. Add 3 more!", icon: "🍪", totalTray: 5, zones: [{ cap: 5, pre: 2, label: "2 + 3 = 5" }], ans: "2 + 3 = 5 cookies!" },
-            { cat: "➕ Addition", prompt: "1 fish in the pond. Add 4 more!", icon: "🐟", totalTray: 5, zones: [{ cap: 5, pre: 1, label: "1 + 4 = 5" }], ans: "1 + 4 = 5 fish!" },
-            { cat: "➕ Addition", prompt: "3 stars in the sky. Add 3 more!", icon: "⭐", totalTray: 5, zones: [{ cap: 6, pre: 3, label: "3 + 3 = 6" }], ans: "3 + 3 = 6 stars!" },
-            { cat: "➕ Addition", prompt: "4 flowers in the pot. Add 2 more!", icon: "🌻", totalTray: 4, zones: [{ cap: 6, pre: 4, label: "4 + 2 = 6" }], ans: "4 + 2 = 6 flowers!" },
-            { cat: "➕ Addition", prompt: "5 acorns in the nest. Add 2 more!", icon: "🌰", totalTray: 4, zones: [{ cap: 7, pre: 5, label: "5 + 2 = 7" }], ans: "5 + 2 = 7 acorns!" },
-            { cat: "➕ Addition", prompt: "4 cars in the garage. Park 3 more!", icon: "🚗", totalTray: 5, zones: [{ cap: 7, pre: 4, label: "4 + 3 = 7" }], ans: "4 + 3 = 7 cars!" },
-            { cat: "➕ Addition", prompt: "4 balloons here. Add 4 more!", icon: "🎈", totalTray: 6, zones: [{ cap: 8, pre: 4, label: "4 + 4 = 8" }], ans: "4 + 4 = 8 balloons!" },
-            { cat: "➕ Addition", prompt: "5 ducks swimming. Add 3 more!", icon: "🦆", totalTray: 5, zones: [{ cap: 8, pre: 5, label: "5 + 3 = 8" }], ans: "5 + 3 = 8 ducks!" },
-            { cat: "➕ Addition", prompt: "6 candies in the jar. Add 3 more!", icon: "🍬", totalTray: 5, zones: [{ cap: 9, pre: 6, label: "6 + 3 = 9" }], ans: "6 + 3 = 9 candies!" },
-            { cat: "➕ Addition", prompt: "5 donuts in the box. Add 5 more!", icon: "🍩", totalTray: 6, zones: [{ cap: 10, pre: 5, label: "5 + 5 = 10" }], ans: "5 + 5 = 10 donuts!" },
-            { cat: "➕ Addition", prompt: "7 blocks in the tower. Add 3 more!", icon: "🧱", totalTray: 5, zones: [{ cap: 10, pre: 7, label: "7 + 3 = 10" }], ans: "7 + 3 = 10 blocks!" },
-
-            // --- 16-28: SUBTRACTION (Taking Away to the Snack/Trash Box) ---
-            { cat: "➖ Subtraction", prompt: "3 apples on the plate. Feed 1 to Monkey!", icon: "🍎", totalTray: 0, zones: [{ cap: 3, pre: 3, free: true, label: "Plate" }, { cap: 1, pre: 0, label: "Monkey (1)" }], ans: "3 - 1 = 2 left!" },
-            { cat: "➖ Subtraction", prompt: "4 carrots here. Feed 2 to Bunny!", icon: "🥕", totalTray: 0, zones: [{ cap: 4, pre: 4, free: true, label: "Garden" }, { cap: 2, pre: 0, label: "Bunny (2)" }], ans: "4 - 2 = 2 left!" },
-            { cat: "➖ Subtraction", prompt: "5 cookies! Put 2 in the tummy box!", icon: "🍪", totalTray: 0, zones: [{ cap: 5, pre: 5, free: true, label: "Plate" }, { cap: 2, pre: 0, label: "Eat (2)" }], ans: "5 - 2 = 3 left!" },
-            { cat: "➖ Subtraction", prompt: "5 bananas! Give 3 to the Jungle!", icon: "🍌", totalTray: 0, zones: [{ cap: 5, pre: 5, free: true, label: "Tree" }, { cap: 3, pre: 0, label: "Give (3)" }], ans: "5 - 3 = 2 left!" },
-            { cat: "➖ Subtraction", prompt: "6 berries! Bear eats 2 of them!", icon: "🍓", totalTray: 0, zones: [{ cap: 6, pre: 6, free: true, label: "Bush" }, { cap: 2, pre: 0, label: "Bear (2)" }], ans: "6 - 2 = 4 left!" },
-            { cat: "➖ Subtraction", prompt: "6 stars! Put 4 in the Sleepy Box!", icon: "⭐", totalTray: 0, zones: [{ cap: 6, pre: 6, free: true, label: "Sky" }, { cap: 4, pre: 0, label: "Box (4)" }], ans: "6 - 4 = 2 left!" },
-            { cat: "➖ Subtraction", prompt: "7 fish! 3 swim away to the Ocean!", icon: "🐟", totalTray: 0, zones: [{ cap: 7, pre: 7, free: true, label: "Pond" }, { cap: 3, pre: 0, label: "Ocean (3)" }], ans: "7 - 3 = 4 left!" },
-            { cat: "➖ Subtraction", prompt: "7 balloons! 2 float up to the Clouds!", icon: "🎈", totalTray: 0, zones: [{ cap: 7, pre: 7, free: true, label: "Party" }, { cap: 2, pre: 0, label: "Clouds (2)" }], ans: "7 - 2 = 5 left!" },
-            { cat: "➖ Subtraction", prompt: "8 acorns! Squirrel hides 4 in the Tree!", icon: "🌰", totalTray: 0, zones: [{ cap: 8, pre: 8, free: true, label: "Ground" }, { cap: 4, pre: 0, label: "Tree (4)" }], ans: "8 - 4 = 4 left!" },
-            { cat: "➖ Subtraction", prompt: "8 cars! Drive 3 onto the Road!", icon: "🚗", totalTray: 0, zones: [{ cap: 8, pre: 8, free: true, label: "Garage" }, { cap: 3, pre: 0, label: "Road (3)" }], ans: "8 - 3 = 5 left!" },
-            { cat: "➖ Subtraction", prompt: "9 candies! Share 4 with your Friend!", icon: "🍬", totalTray: 0, zones: [{ cap: 9, pre: 9, free: true, label: "Jar" }, { cap: 4, pre: 0, label: "Friend (4)" }], ans: "9 - 4 = 5 left!" },
-            { cat: "➖ Subtraction", prompt: "10 donuts! Eat 5 for breakfast!", icon: "🍩", totalTray: 0, zones: [{ cap: 10, pre: 10, free: true, label: "Box" }, { cap: 5, pre: 0, label: "Eat (5)" }], ans: "10 - 5 = 5 left!" },
-            { cat: "➖ Subtraction", prompt: "10 ducks! 3 fly South!", icon: "🦆", totalTray: 0, zones: [{ cap: 10, pre: 10, free: true, label: "Lake" }, { cap: 3, pre: 0, label: "South (3)" }], ans: "10 - 3 = 7 left!" },
-
-            // --- 29-39: MULTIPLICATION (Groups Of) ---
-            { cat: "✖️ Groups (Multiply)", prompt: "2 baskets, 2 apples in each!", icon: "🍎", totalTray: 4, zones: [{ cap: 2, pre: 0, label: "Group of 2" }, { cap: 2, pre: 0, label: "Group of 2" }], ans: "2 groups of 2 = 4!" },
-            { cat: "✖️ Groups (Multiply)", prompt: "3 nests, 2 eggs in each!", icon: "🥚", totalTray: 6, zones: [{ cap: 2, pre: 0, label: "2 eggs" }, { cap: 2, pre: 0, label: "2 eggs" }, { cap: 2, pre: 0, label: "2 eggs" }], ans: "3 groups of 2 = 6!" },
-            { cat: "✖️ Groups (Multiply)", prompt: "2 plates, 3 cookies on each!", icon: "🍪", totalTray: 6, zones: [{ cap: 3, pre: 0, label: "3 cookies" }, { cap: 3, pre: 0, label: "3 cookies" }], ans: "2 groups of 3 = 6!" },
-            { cat: "✖️ Groups (Multiply)", prompt: "4 friends, give 2 shoes to each!", icon: "👟", totalTray: 8, zones: [{ cap: 2, pre: 0, label: "2 shoes" }, { cap: 2, pre: 0, label: "2 shoes" }, { cap: 2, pre: 0, label: "2 shoes" }, { cap: 2, pre: 0, label: "2 shoes" }], ans: "4 groups of 2 = 8!" },
-            { cat: "✖️ Groups (Multiply)", prompt: "2 jars, 4 candies in each!", icon: "🍬", totalTray: 8, zones: [{ cap: 4, pre: 0, label: "4 candies" }, { cap: 4, pre: 0, label: "4 candies" }], ans: "2 groups of 4 = 8!" },
-            { cat: "✖️ Groups (Multiply)", prompt: "3 boxes, 3 stars in each!", icon: "⭐", totalTray: 9, zones: [{ cap: 3, pre: 0, label: "3 stars" }, { cap: 3, pre: 0, label: "3 stars" }, { cap: 3, pre: 0, label: "3 stars" }], ans: "3 groups of 3 = 9!" },
-            { cat: "✖️ Groups (Multiply)", prompt: "5 bags, 2 carrots in each!", icon: "🥕", totalTray: 10, zones: [{ cap: 2, pre: 0, label: "2" }, { cap: 2, pre: 0, label: "2" }, { cap: 2, pre: 0, label: "2" }, { cap: 2, pre: 0, label: "2" }, { cap: 2, pre: 0, label: "2" }], ans: "5 groups of 2 = 10!" },
-            { cat: "✖️ Groups (Multiply)", prompt: "2 hands, 5 rings on each!", icon: "💍", totalTray: 10, zones: [{ cap: 5, pre: 0, label: "5 rings" }, { cap: 5, pre: 0, label: "5 rings" }], ans: "2 groups of 5 = 10!" },
-            { cat: "✖️ Groups (Multiply)", prompt: "3 ponds, 4 fish in each!", icon: "🐟", totalTray: 12, zones: [{ cap: 4, pre: 0, label: "4 fish" }, { cap: 4, pre: 0, label: "4 fish" }, { cap: 4, pre: 0, label: "4 fish" }], ans: "3 groups of 4 = 12!" },
-            { cat: "✖️ Groups (Multiply)", prompt: "4 pots, 3 flowers in each!", icon: "🌻", totalTray: 12, zones: [{ cap: 3, pre: 0, label: "3" }, { cap: 3, pre: 0, label: "3" }, { cap: 3, pre: 0, label: "3" }, { cap: 3, pre: 0, label: "3" }], ans: "4 groups of 3 = 12!" },
-            { cat: "✖️ Groups (Multiply)", prompt: "3 boxes, 5 donuts in each!", icon: "🍩", totalTray: 15, zones: [{ cap: 5, pre: 0, label: "5 donuts" }, { cap: 5, pre: 0, label: "5 donuts" }, { cap: 5, pre: 0, label: "5 donuts" }], ans: "3 groups of 5 = 15!" },
-
-            // --- 40-50: DIVISION (Fair Sharing) ---
-            { cat: "➗ Fair Sharing (Divide)", prompt: "Share 2 bananas equally between 2 Monkeys!", icon: "🍌", totalTray: 2, zones: [{ cap: 1, pre: 0, label: "Monkey 1" }, { cap: 1, pre: 0, label: "Monkey 2" }], ans: "1 each! (2 ÷ 2 = 1)" },
-            { cat: "➗ Fair Sharing (Divide)", prompt: "Share 4 cookies equally between 2 Bears!", icon: "🍪", totalTray: 4, zones: [{ cap: 2, pre: 0, label: "Bear 1" }, { cap: 2, pre: 0, label: "Bear 2" }], ans: "2 each! (4 ÷ 2 = 2)" },
-            { cat: "➗ Fair Sharing (Divide)", prompt: "Share 6 strawberries equally between 2 Foxes!", icon: "🍓", totalTray: 6, zones: [{ cap: 3, pre: 0, label: "Fox 1" }, { cap: 3, pre: 0, label: "Fox 2" }], ans: "3 each! (6 ÷ 2 = 3)" },
-            { cat: "➗ Fair Sharing (Divide)", prompt: "Share 6 carrots equally among 3 Bunnies!", icon: "🥕", totalTray: 6, zones: [{ cap: 2, pre: 0, label: "Bunny 1" }, { cap: 2, pre: 0, label: "Bunny 2" }, { cap: 2, pre: 0, label: "Bunny 3" }], ans: "2 each! (6 ÷ 3 = 2)" },
-            { cat: "➗ Fair Sharing (Divide)", prompt: "Share 8 apples equally between 2 Horses!", icon: "🍎", totalTray: 8, zones: [{ cap: 4, pre: 0, label: "Horse 1" }, { cap: 4, pre: 0, label: "Horse 2" }], ans: "4 each! (8 ÷ 2 = 4)" },
-            { cat: "➗ Fair Sharing (Divide)", prompt: "Share 8 acorns equally among 4 Squirrels!", icon: "🌰", totalTray: 8, zones: [{ cap: 2, pre: 0, label: "Squirrel 1" }, { cap: 2, pre: 0, label: "Squirrel 2" }, { cap: 2, pre: 0, label: "Squirrel 3" }, { cap: 2, pre: 0, label: "Squirrel 4" }], ans: "2 each! (8 ÷ 4 = 2)" },
-            { cat: "➗ Fair Sharing (Divide)", prompt: "Share 9 fish equally among 3 Cats!", icon: "🐟", totalTray: 9, zones: [{ cap: 3, pre: 0, label: "Cat 1" }, { cap: 3, pre: 0, label: "Cat 2" }, { cap: 3, pre: 0, label: "Cat 3" }], ans: "3 each! (9 ÷ 3 = 3)" },
-            { cat: "➗ Fair Sharing (Divide)", prompt: "Share 10 candies equally between 2 Kids!", icon: "🍬", totalTray: 10, zones: [{ cap: 5, pre: 0, label: "Kid 1" }, { cap: 5, pre: 0, label: "Kid 2" }], ans: "5 each! (10 ÷ 2 = 5)" },
-            { cat: "➗ Fair Sharing (Divide)", prompt: "Share 10 stars equally among 5 Rockets!", icon: "⭐", totalTray: 10, zones: [{ cap: 2, pre: 0, label: "🚀 1" }, { cap: 2, pre: 0, label: "🚀 2" }, { cap: 2, pre: 0, label: "🚀 3" }, { cap: 2, pre: 0, label: "🚀 4" }, { cap: 2, pre: 0, label: "🚀 5" }], ans: "2 each! (10 ÷ 5 = 2)" },
-            { cat: "➗ Fair Sharing (Divide)", prompt: "Share 12 donuts equally among 3 Police Cars!", icon: "🍩", totalTray: 12, zones: [{ cap: 4, pre: 0, label: "🚓 1" }, { cap: 4, pre: 0, label: "🚓 2" }, { cap: 4, pre: 0, label: "🚓 3" }], ans: "4 each! (12 ÷ 3 = 4)" },
-            { cat: "➗ Fair Sharing (Divide)", prompt: "Share 12 balloons equally among 4 Clowns!", icon: "🎈", totalTray: 12, zones: [{ cap: 3
+  <noscript>Zet JavaScript aan om te spelen.</noscript>
+  <script src="app.js"></script>
+</body>
+</html>
